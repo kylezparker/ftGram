@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div id="cont">
+    <p class="welcome">Welcome to <span id="blue">face</span><span id="red">Twitter</span><span id="green">Gram</span>
+    </p>
+    <p>Connect with the <span style="font-weight:500;">world</span> and your <span
+            style="font-weight:500;">friends</span></p>
+    <br />
+    <p id="inm">Over 10 million <span style="font-weight:500;">daily</span> users</p>
+    <br />
+</div>
+<div class="logreg homePad">
+    <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+    <a href="{% url 'signup' %}" class="btn btn-success">Register</a>
+
+</div>
+<br />
+<br />
+<br />
+<p style="text-align:center;font-weight:500;">©2022 faceTwitterGram, Inc. No rights reserved.</p>
+
+{% endblock content %}

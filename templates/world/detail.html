@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ msg.title }}{% endblock title %}
+{% block content %}
+<h1>{{ msg.title }}</h1>
+<!-- <h1>{{ msg.subtitle }}</h1> -->
+<!-- <strong>Created on:{{ article.created_on }}</strong>
+<strong>Created by:{{ article.author }}</strong> -->
+<p>{{ msg.body }}</p>
+{% if user.id == msg.author.id %}
+<p>
+    <a href="{% url 'msg_edit' msg.id %}" class="btn btn-primary">Edit</a>
+</p>
+<p>
+    <a href="{% url 'msg_delete' msg.id %}" class="btn btn-danger">Delete</a>
+</p>
+{% endif %}
+{% endblock content %}

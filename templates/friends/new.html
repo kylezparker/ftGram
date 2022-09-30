@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}New Post{% endblock title %}
+{% block content %}
+<h1 style="padding-top:25px; padding-bottom:15px;font-weight:550;">New Post</h1>
+<div class="card">
+    <form class="card-body" style="font-weight:550;border:5px solid rgb(66, 103, 178);" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input style="margin-top:20px;" type="submit" value="Create" class="btn btn-success">
+    </form>
+</div>
+<br />
+<br />
+<br />
+<p style="text-align:center;font-weight:500;">©2022 faceTwitterGram, Inc. No rights reserved.</p>
+{% endblock content %}

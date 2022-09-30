@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ share.title }}{% endblock title %}
+{% block content %}
+<div style="padding-top:100px;">
+    <div class="card" style="border:5px solid rgb(66, 103, 178);">
+        <div class=" card-body">
+            <h1 class="card-title">{{ share.title }}</h1>
+            <!-- <h1>{{ share.subtitle }}</h1> -->
+            <div style="padding-top:10px;">
+                <strong style="font-weight:500;">{{ share.created_on }}</strong>
+                <strong style="color:green;font-size:20px;margin-left:10px;">{{ share.author }}</strong>
+            </div>
+            <p class="card-text" style="font-size:20px;padding-top:15px;">{{ share.body }}</p>
+            {% if user.id == share.author.id %}
+            <p style="padding-top:15px;">
+                <a href="{% url 'share_edit' share.id %}" class="btn btn-primary" style="font-size:25px;">Edit</a>
+                <a href="{% url 'share_delete' share.id %}" class="btn btn-danger" style="font-size:25px;">Delete</a>
+                <a href="#"><i style="padding-left:15px;color:black;font-size:20px;"
+                        class="fa-solid fa-thumbs-up"></i></a>
+                <a href="#"><i style="padding-left:15px;color:black;font-size:20px;"
+                        class="fa-solid fa-thumbs-down"></i></a>
+                <a href="#"><i style="padding-left:15px;color:black;font-size:20px;" class="fa-solid fa-flag"></i></a>
+            </p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<p style="text-align:center;font-weight:500;margin-top:50px;">©2022 faceTwitterGram, Inc. No rights reserved.</p>
+
+{% endblock content %}

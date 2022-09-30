@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Posts{% endblock title %}
+{% block content %}
+<h1>Posts</h1>
+{% for msg in msg_list %}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ msg.title }}</h5>
+        <!-- <h6 class="card-subtitle mb-2 text-muted">{{ article.subtitle }}</h6> -->
+        <p class="card-text">{{ msg.body|truncatechars:500 }}</p>
+        <a href="{% url 'msg_detail' msg.id %}" class="card-link">Continue reading...</a>
+    </div>
+</div>
+<br />
+{% endfor %}
+{% endblock content %}
