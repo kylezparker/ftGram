@@ -24,7 +24,7 @@ class ShareDetailView(DetailView):
 class ShareCreateView(LoginRequiredMixin, CreateView):
     template_name = "friends/new.html"
     model= Share
-    fields = ["title", "subtitle", "body", "author"]
+    fields = ["title", "subtitle", "body", "author", "images"]
 
     def form_valid(self, form):
         form.instance.author = self.request.user

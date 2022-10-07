@@ -9,16 +9,20 @@
         <h5 class="card-title">{{ share.author }}</h5>
         <!-- <h6 class="card-subtitle mb-2 text-muted">{{ article.subtitle }}</h6> -->
         <p class="card-text" style="font-size:20px;">{{ share.body|truncatechars:500 }}</p>
+        <img src="{{ share.image }}">
         <a style="text-decoration:none;color:rgb(66, 103, 178);font-weight:bold;"></a>
         <a  href="{% url 'share_detail' share.id %}" class="card-link">More</a>
         <a href="#"><i style="padding-left:15px;color:black;" class="fa-solid fa-thumbs-up"></i></a>
         <a href="#"><i style="padding-left:15px;color:black;" class="fa-solid fa-thumbs-down"></i></a>
         <a href="#"><i style="padding-left:15px;color:black;" class="fa-solid fa-flag"></i></a>
         <a href="#" style="padding-left:15px;color:black;text-decoration:none;">{{ share.created_on }}</a>
+       
     </div>
 </div>
 
 <br />
+
+
 
 {% endfor %}
 <p style="text-align:center;font-weight:500;margin-top:30px;">©2022 faceTwitterGram, Inc. No rights reserved.</p>

@@ -7,6 +7,7 @@ class Share(models.Model):
     title = models.CharField(max_length=256)
     subtitle = models.CharField(max_length=256)
     body= models.TextField()
+    image = models.ImageField(upload_to="image/" , blank=True, null=True)
     created_on= models.DateTimeField(auto_now_add=True)
     image =models.ImageField(null=True, blank=True)
     author =models.ForeignKey(
