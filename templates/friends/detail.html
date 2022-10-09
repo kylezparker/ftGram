@@ -12,7 +12,7 @@
             </div>
             <p class="card-text" style="font-size:20px;padding-top:15px;">{{ share.body }}</p>
             {% if user.id == share.author.id %}
-            <img src="{{ share.image }}">
+            <img src="{{ share.image.url }}">
             <p style="padding-top:15px;">
                 <a href="{% url 'share_edit' share.id %}" class="btn btn-primary" style="font-size:25px;">Edit</a>
                 <a href="{% url 'share_delete' share.id %}" class="btn btn-danger" style="font-size:25px;">Delete</a>
