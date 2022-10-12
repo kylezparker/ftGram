@@ -1,5 +1,3 @@
 venv
-static
-staticfiles
 Procfile
 heroku_config.sh
