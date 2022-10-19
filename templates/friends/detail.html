@@ -10,7 +10,13 @@
                 <strong style="font-weight:500;">{{ share.created_on }}</strong>
                 <strong style="color:green;font-size:20px;margin-left:10px;">{{ share.author }}</strong>
             </div>
+            {% if share.image %} 
             <img src="{{ share.image.url  }}">
+            {% else %} 
+                <p>No Image</p>
+            {% endif %}
+            
+            
             <p class="card-text" style="font-size:20px;padding-top:15px;">{{ share.body }}</p>
             {% if user.id == share.author.id %}
             <p style="padding-top:15px;">
