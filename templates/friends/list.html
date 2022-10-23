@@ -15,6 +15,12 @@
         <a style="text-decoration:none;color:rgb(66, 103, 178);font-weight:bold;"></a>
         <a  href="{% url 'share_detail' share.id %}" class="card-link">More</a>
         <a href="#"><i style="padding-left:15px;color:black;" class="fa-solid fa-thumbs-up"></i></a>
+        <form action="{% url 'post_likes' share.pk %}"
+method="POST">
+{% csrf_token %}
+<button type="submit", name="share_id", value="{{ share.id }}", class="btn btn-primary btn-sm">Like</button>
+</form>
+
         <a href="#"><i style="padding-left:15px;color:black;" class="fa-solid fa-thumbs-down"></i></a>
         <a href="#"><i style="padding-left:15px;color:black;" class="fa-solid fa-flag"></i></a>
         <a href="#" style="padding-left:15px;color:black;text-decoration:none;">{{ share.created_on }}</a>
@@ -24,6 +30,12 @@
 
 <br />
 
+<hr>
+<form action="{% url 'share_likes' share.pk %}"
+method="POST">
+{% csrf_token %}
+<button type="submit", name="share_id", value="{{ share.id }}", class="btn btn-primary btn-sm">Like</button>
+</form>
 
 
 

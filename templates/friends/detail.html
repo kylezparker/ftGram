@@ -22,6 +22,12 @@
             <p style="padding-top:15px;">
                 <a href="{% url 'share_edit' share.id %}" class="btn btn-primary" style="font-size:25px;">Edit</a>
                 <a href="{% url 'share_delete' share.id %}" class="btn btn-danger" style="font-size:25px;">Delete</a>
+                <form action="{% url 'post_likes' share.pk %}"
+method="POST">
+{% csrf_token %}
+<button type="submit", name="share_id", value="{{ share.id }}", class="btn btn-primary btn-sm">Like</button>
+</form>
+
                 <a href="#"><i style="padding-left:15px;color:black;font-size:20px;"
                         class="fa-solid fa-thumbs-up"></i></a>
                 <a href="#"><i style="padding-left:15px;color:black;font-size:20px;"

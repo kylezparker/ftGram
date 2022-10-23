@@ -12,10 +12,16 @@ from django.urls import reverse
 from django.db import models
 from django.shortcuts import render, get_object_or_404
 from friends.models import Profile
-
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
+
+def LikeView(request, pk):
+    post = get_object_or_404(Share, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('share_detail', args=[str(pk)]))
+
 
 class ShowProfilePageView(DetailView):
     model = Profile

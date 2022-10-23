@@ -24,7 +24,7 @@ class Share(models.Model):
     body= models.TextField()
     image = models.ImageField(blank=True, null=True, upload_to="image/")
     created_on= models.DateTimeField(auto_now_add=True)
-    #no_of_likes = models.IntegerField(default=0)
+    likes =models.ManyToManyField(User, related_name="share_likes")
     author =models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE
