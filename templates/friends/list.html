@@ -7,6 +7,8 @@
 <div class="card" style="border:5px solid rgb(66, 103, 178);">
     <div class=" card-body">
         <h5 class="card-title">{{ share.author }}</h5>
+        <img src="{{ share.author.profile.profile_img.url }}" width=30 height=30 class="rounded-circle">
+        <a href="{% url 'show_profile_page' share.author.profile.id %}">Profile Page</a> 
         <!-- <h6 class="card-subtitle mb-2 text-muted">{{ article.subtitle }}</h6> -->
         <p class="card-text" style="font-size:20px;">{{ share.body|truncatechars:500 }}</p>
         <img src="{{ share.image }}">
@@ -24,8 +26,8 @@
 
 
 
+
 {% endfor %}
 <p style="text-align:center;font-weight:500;margin-top:30px;">©2022 faceTwitterGram, Inc. No rights reserved.</p>
-
 
 {% endblock content %}

@@ -2,16 +2,32 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     CreateView,
     UpdateView,
-    DeleteView
+    DeleteView,
+    
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
-from .models import Share
+from .models import Share, Profile
 from django.urls import reverse
+from django.db import models
+from django.shortcuts import render, get_object_or_404
+from friends.models import Profile
 
 
 
 # Create your views here.
+
+class ShowProfilePageView(DetailView):
+    model = Profile
+    template_name= "registration/user_profile.html"
+
+    def get_context_data(self, *args, **kwargs):
+        users = Profile.objects.all()
+        context = super(ShowProfilePageView, self).get_context_data()
+        page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
+
+        context ["page_user"] = page_user
+        return context
 
 class ShareListView(ListView):
     template_name = "friends/list.html"
